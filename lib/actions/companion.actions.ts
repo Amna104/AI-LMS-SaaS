@@ -131,3 +131,4 @@ export const getUserCompanions = async (userId: string) => {
     return data;
 }
 
+
