@@ -143,16 +143,24 @@ body {
     @apply flex gap-4 justify-between items-start w-full max-lg:flex-col-reverse max-lg:items-center;
   }
   .companions-grid {
-    @apply flex flex-wrap gap-4 w-full max-md:justify-center;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full;
   }
   .companion-card {
-    @apply flex flex-col rounded-4xl border border-black px-4 py-4 gap-5 w-full min-lg:max-w-[410px] justify-between;
+    @apply flex flex-col rounded-4xl border border-black px-4 py-4 gap-5 w-full justify-between min-h-[280px] transition-all duration-300 ease-in-out hover:transform hover:scale-105 hover:shadow-xl hover:-translate-y-2;
+  }
+  
+  .companion-card .subject-badge {
+    @apply self-start;
+  }
+  
+  .companion-card .btn-primary {
+    @apply mt-auto w-full justify-center;
   }
   .subject-badge {
     @apply bg-black text-white rounded-4xl text-sm px-2 py-1 capitalize;
   }
   .companion-bookmark {
-    @apply px-2 bg-black rounded-4xl flex items-center h-full aspect-square cursor-pointer;
+    @apply px-2 bg-black rounded-4xl flex items-center h-full aspect-square cursor-pointer hover:bg-gray-800 transition-colors duration-200;
   }
   .input {
     @apply !border-black !bg-white focus-visible:!ring-0 focus-visible:!border-black !w-full;
@@ -167,13 +175,13 @@ body {
     @apply bg-cta-gold rounded-4xl px-3 py-1.5 text-black;
   }
   .btn-primary {
-    @apply bg-primary text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2;
+    @apply bg-[#FF6B47] hover:bg-[#FF5A35] text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2 transition-all duration-300 ease-in-out hover:transform hover:scale-105 hover:shadow-lg;
   }
   .navbar {
     @apply flex items-center justify-between mx-auto w-full px-14 py-4 bg-white max-sm:px-4;
   }
   .btn-signin {
-    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer;
+    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white hover:transform hover:scale-105;
   }
   .companion-list {
     @apply rounded-4xl border border-black px-7 pt-7 pb-10 max-lg:w-full bg-white;
@@ -223,4 +231,118 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Pricing Page Styles */
+  .pricing-page {
+    @apply max-w-7xl mx-auto px-6 py-12;
+  }
+
+  .pricing-header {
+    @apply text-center mb-16;
+  }
+
+  .pricing-title {
+    @apply text-4xl font-bold mb-4;
+  }
+
+  .pricing-subtitle {
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  }
+
+  .pricing-cards {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto;
+  }
+
+  .pricing-card {
+    @apply relative rounded-3xl p-8 border-2 border-gray-200 bg-white shadow-lg transition-all duration-300 ease-in-out hover:transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  .basic-plan {
+    @apply bg-gradient-to-br from-purple-100 to-purple-200;
+  }
+
+  .core-plan {
+    @apply bg-gradient-to-br from-yellow-100 to-yellow-200 border-yellow-300 transform scale-105;
+  }
+
+  .pro-plan {
+    @apply bg-gradient-to-br from-blue-100 to-blue-200;
+  }
+
+  .popular-badge {
+    @apply absolute -top-3 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-4 py-1 rounded-full text-sm font-medium;
+  }
+
+  .plan-icon {
+    @apply w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 mx-auto;
+  }
+
+  .plan-name {
+    @apply text-xl font-semibold text-center mb-2;
+  }
+
+  .plan-price {
+    @apply text-center mb-2;
+  }
+
+  .price {
+    @apply text-4xl font-bold;
+  }
+
+  .period {
+    @apply text-lg text-gray-600;
+  }
+
+  .plan-description {
+    @apply text-center text-gray-600 mb-6;
+  }
+
+  .features-list {
+    @apply space-y-3 mb-8;
+  }
+
+  .feature {
+    @apply flex items-center gap-3 text-sm;
+  }
+
+  .feature.included .checkmark {
+    @apply text-green-500 font-bold;
+  }
+
+  .feature.excluded {
+    @apply text-gray-400;
+  }
+
+  .feature.excluded .x-mark {
+    @apply text-red-500 font-bold;
+  }
+
+  .upgrade-btn {
+    @apply w-full py-3 px-6 rounded-xl font-semibold text-white transition-colors duration-200;
+  }
+
+  .upgrade-btn:hover {
+    @apply transform scale-105 shadow-lg;
+  }
+
+  .upgrade-instructions {
+    @apply mt-6 mb-8 p-4 bg-blue-50 border border-blue-200 rounded-lg;
+  }
+
+  .instructions-text {
+    @apply text-center text-blue-800 text-sm md:text-base;
+  }
+
+  .basic-btn {
+    @apply bg-[#FF6B47] hover:bg-[#FF5A35];
+  }
+
+  .core-btn {
+    @apply bg-[#FF6B47] hover:bg-[#FF5A35];
+  }
+
+  .pro-btn {
+    @apply bg-[#FF6B47] hover:bg-[#FF5A35];
+  }
+
 }
