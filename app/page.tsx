@@ -199,8 +199,8 @@ export default function LandingPage() {
             instant feedback, and personalized learning paths—all in one platform.
           </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            {/* CTA Button */}
+            <div className="flex justify-center md:justify-start">
               <Link
                 href="/dashboard"
                 className="btn-hover-glow group relative bg-[#FF6B47] hover:bg-[#FF5A35] text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg overflow-hidden"
@@ -224,20 +224,6 @@ export default function LandingPage() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF5A35] to-[#FF6B47] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
-
-              <button
-                onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
-                className="group bg-white hover:bg-gray-50 text-gray-900 font-semibold px-8 py-4 rounded-2xl border-2 border-gray-900 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2"
-              >
-                <svg
-                  className="w-6 h-6 group-hover:scale-110 transition-transform"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                Watch Demo
-              </button>
             </div>
 
             {/* Stats */}
