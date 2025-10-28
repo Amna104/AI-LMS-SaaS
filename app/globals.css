@@ -129,6 +129,7 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    padding-top: 70px; /* Account for fixed navbar height */
   }
   main {
     @apply mx-auto px-14 flex flex-col gap-8 bg-background h-full max-w-[1400px] pt-10 max-sm:px-2;
@@ -175,13 +176,114 @@ body {
     @apply bg-cta-gold rounded-4xl px-3 py-1.5 text-black;
   }
   .btn-primary {
-    @apply bg-[#FF6B47] hover:bg-[#FF5A35] text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2 transition-all duration-300 ease-in-out hover:transform hover:scale-105 hover:shadow-lg;
+    @apply text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2;
+    position: relative;
+    background: #FF6B47;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #FF5A35 0%, #FF6B47 100%);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+  
+  .btn-primary:hover::before {
+    width: 100%;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 107, 71, 0.3);
   }
   .navbar {
     @apply flex items-center justify-between mx-auto w-full px-14 py-4 bg-white max-sm:px-4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  
+  .navbar-visible {
+    transform: translateY(0);
+  }
+  
+  .navbar-hidden {
+    transform: translateY(-100%);
+  }
+  
+  .navbar:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Nav link gradient underline effect */
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF6B47 0%, #FF5A35 50%, #FCCC41 100%);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .nav-link:hover {
+    color: #FF6B47;
+  }
+  
+  /* Active link gradient underline */
+  .active-link::after {
+    width: 100%;
+    background: linear-gradient(90deg, #FF6B47 0%, #FF5A35 50%, #FCCC41 100%);
   }
   .btn-signin {
-    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white hover:transform hover:scale-105;
+    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .btn-signin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: black;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+  
+  .btn-signin:hover::before {
+    width: 100%;
+  }
+  
+  .btn-signin:hover {
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   .companion-list {
     @apply rounded-4xl border border-black px-7 pt-7 pb-10 max-lg:w-full bg-white;
